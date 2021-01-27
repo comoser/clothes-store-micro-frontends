@@ -1,0 +1,12 @@
+{
+    "packages": ["products/*"],
+    "version": "independent",
+    "useWorkspaces": true,
+    "npmClient": "yarn",
+    "command": {
+      "version": {
+        "allowBranch": "master"
+      }
+    }
+  }
+  

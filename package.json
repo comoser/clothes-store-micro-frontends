@@ -1,0 +1,27 @@
+{
+  "name": "clothes-store-micro-frontends",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:comoser/clothes-store-micro-frontends.git",
+  "author": "David Alecrim <d.alecrim@xgeeks.io>",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "products/*"
+    ]
+  },
+  "scripts": {
+    "start": "concurrently \"wsrun --parallel start\"",
+    "build:all": "concurrently \"wsrun --parallel build\"",
+    "serve:all": "concurrently \"wsrun --parallel serve\"",
+    "build:serve:all": "yarn run build:all && yarn run serve:all",
+    "test": "concurrently \"wsrun --parallel test\"",
+    "lint": "concurrently \"wsrun --parallel lint\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "lerna": "^3.22.1",
+    "rimraf": "^3.0.2",
+    "wsrun": "^5.2.4"
+  }
+}

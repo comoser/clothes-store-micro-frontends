@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, useRouteMatch } from 'react-router-dom';
 import ItemList from '../item_list';
+import ItemDetails from '../item_details';
 
 const Routes = () => {
   const { path } = useRouteMatch();
@@ -8,7 +9,7 @@ const Routes = () => {
   return (
     <>
       <Route exact path={path} component={ItemList} />
-      <Route path={`${path}/details/:itemId`} render={() => "details for product"}/>
+      <Route path={`${path}/details/:itemId`} component={ItemDetails} />
     </>
   );
 };

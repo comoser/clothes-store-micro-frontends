@@ -2,21 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
+import AsyncLoader from '../async_loader';
+
+const Wrapper = React.lazy(() => import('shared/Wrapper'));
 
 const Navbar = () => {
   return (
     <Nav>
-      <Wrapper>
-        <NavbarLayout>
-          <Logo>
-            <img src={logo} height="90" width="90" />
-          </Logo>
-          <LinksWrapper>
-            <StyledNavbarLink to="/items">Clothes</StyledNavbarLink>
-            <StyledNavbarLink to="/blog">Blog</StyledNavbarLink>
-          </LinksWrapper>
-        </NavbarLayout>
-      </Wrapper>
+      <AsyncLoader>
+        <Wrapper>
+          <NavbarLayout>
+            <Logo>
+              <img src={logo} height="90" width="90" />
+            </Logo>
+            <LinksWrapper>
+              <StyledNavbarLink to="/items">Clothes</StyledNavbarLink>
+              <StyledNavbarLink to="/blog">Blog</StyledNavbarLink>
+            </LinksWrapper>
+          </NavbarLayout>
+        </Wrapper>
+      </AsyncLoader>
     </Nav>
   );
 };
@@ -24,12 +29,6 @@ const Navbar = () => {
 const Nav = styled.nav`
   height: 100px;
   background-color: #F0D030;
-`;
-
-const Wrapper = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  min-height: 100%;
 `;
 
 const NavbarLayout = styled.div`

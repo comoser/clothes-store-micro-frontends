@@ -1,11 +1,11 @@
 {
-  "name": "shared",
+  "name": "checkout",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "serve": "cd dist && PORT=3004 npx serve",
+    "serve": "cd dist && PORT=3002 npx serve",
     "start": "webpack-dev-server --mode development",
     "start:live": "webpack-dev-server --mode development --liveReload"
   },

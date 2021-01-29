@@ -5,13 +5,13 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:3002/',
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json'],
   },
   devServer: {
-    port: 3000,
+    port: 3002,
     historyApiFallback: true,
   },
   module: {
@@ -35,18 +35,18 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpg|gif|svg)$/i,
         type: 'asset/resource'
       },
     ],
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app_shell',
-      remotes: {
-        items: 'items@http://localhost:3001/remoteEntry.js',
-        checkout: 'checkout@http://localhost:3002/remoteEntry.js',
-        shared: 'shared@http://localhost:3004/remoteEntry.js',
+      name: 'checkout',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CheckoutCart': './src/components/checkout_cart',
+        './Routes': './src/components/routes',
       },
       shared: {
         ...deps,

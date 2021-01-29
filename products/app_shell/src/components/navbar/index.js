@@ -5,6 +5,7 @@ import logo from '../../assets/logo.png';
 import AsyncLoader from '../async_loader';
 
 const Wrapper = React.lazy(() => import('shared/Wrapper'));
+const CheckoutCart = React.lazy(() => import('checkout/CheckoutCart'));
 
 const Navbar = () => {
   return (
@@ -13,12 +14,13 @@ const Navbar = () => {
         <Wrapper>
           <NavbarLayout>
             <Logo>
-              <img src={logo} height="90" width="90" />
+              <img src={logo} height="90" width="90" alt="logo"/>
             </Logo>
             <LinksWrapper>
               <StyledNavbarLink to="/items">Clothes</StyledNavbarLink>
               <StyledNavbarLink to="/blog">Blog</StyledNavbarLink>
             </LinksWrapper>
+            <CheckoutCart />
           </NavbarLayout>
         </Wrapper>
       </AsyncLoader>

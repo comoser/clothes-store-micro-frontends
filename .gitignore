@@ -1,4 +1,5 @@
 /node_modules
-packages/**/node_modules
+products/**/node_modules
 .vscode/
+.idea/
 .DS_Store

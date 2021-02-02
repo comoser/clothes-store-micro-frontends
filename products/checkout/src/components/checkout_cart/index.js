@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CartSvg from '../../assets/cart.svg';
 
-const CheckoutCart = () => {
-  const itemsInCart = 5;
-
+const CheckoutCart = ({ itemsInCart }) => {
   return (
     <CheckoutCartLayout>
       <StyledLink to="/checkout">
-        <StyledIcon src={CartSvg} alt="cart logo" />
-        {itemsInCart > 0 && <NumberOfItems>{itemsInCart}</NumberOfItems>}
+        <StyledIcon src={CartSvg} alt="cart logo"/>
+        {itemsInCart.length > 0 && <NumberOfItems>{itemsInCart.length}</NumberOfItems>}
       </StyledLink>
     </CheckoutCartLayout>
   );
@@ -32,6 +30,7 @@ const StyledLink = styled(Link)`
   width: 100%;
   text-align: center;
   transition: background-color 200ms;
+
   &:hover {
     background-color: #fff0f2;
   }

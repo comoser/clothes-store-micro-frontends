@@ -6,12 +6,27 @@ import AsyncLoader from '../async_loader';
 
 const Wrapper = React.lazy(() => import('shared/Wrapper'));
 
-const ItemList = () => {
+const ItemList = ({ itemsInCart, setItemsInCart, setNotification }) => {
+  const itemsAvailable = items.filter(item => !itemsInCart.find(itemInCart => itemInCart.id === item.id));
+
+  const onAddItem = (itemToAdd) => {
+    setItemsInCart([...itemsInCart, itemToAdd]);
+    setNotification({ type: 'success', message: 'Item added to cart!' });
+  }
+
   return (
     <AsyncLoader>
       <Wrapper>
         <ItemListLayout>
-          {items.map(item => <ItemListItem key={item.name} item={item} />)}
+          {
+            itemsAvailable.map(item =>
+              <ItemListItem
+                key={item.name}
+                item={item}
+                onAddItem={onAddItem}
+              />
+            )
+          }
         </ItemListLayout>
       </Wrapper>
     </AsyncLoader>

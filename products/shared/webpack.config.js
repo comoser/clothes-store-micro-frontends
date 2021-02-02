@@ -52,6 +52,7 @@ module.exports = {
         './Header': './src/components/header',
         './Wrapper': './src/components/wrapper',
         './Constants': './src/constants',
+        './Utils': './src/utils',
       },
       shared: {
         ...deps,

@@ -7,7 +7,7 @@ import AsyncLoader from '../async_loader';
 const Wrapper = React.lazy(() => import('shared/Wrapper'));
 const CheckoutCart = React.lazy(() => import('checkout/CheckoutCart'));
 
-const Navbar = () => {
+const Navbar = ({ itemsInCart }) => {
   return (
     <Nav>
       <AsyncLoader>
@@ -20,7 +20,7 @@ const Navbar = () => {
               <StyledNavbarLink to="/items">Clothes</StyledNavbarLink>
               <StyledNavbarLink to="/blog">Blog</StyledNavbarLink>
             </LinksWrapper>
-            <CheckoutCart />
+            <CheckoutCart itemsInCart={itemsInCart} />
           </NavbarLayout>
         </Wrapper>
       </AsyncLoader>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import items from '../../fixtures/items';
 import AsyncLoader from '../async_loader';
@@ -11,9 +11,16 @@ const Body = React.lazy(() => import('shared/Body'));
 const Body2 = React.lazy(() => import('shared/Body2'));
 const Button = React.lazy(() => import('shared/Button'));
 
-const ItemDetails = () => {
+const ItemDetails = ({ itemsInCart, setItemsInCart, setNotification }) => {
   const { itemId } = useParams();
+  const history = useHistory();
   const item = items.find(item => item.id === Number(itemId));
+
+  const onAddButtonClick = () => {
+    setItemsInCart([...itemsInCart, item]);
+    setNotification({ type: 'success', message: 'Item added to cart!' });
+    history.push('/items');
+  }
 
   return (
     <AsyncLoader>
@@ -25,7 +32,9 @@ const ItemDetails = () => {
             <Body>{item.description}</Body>
             <Body2 padding>{item.longDescription}</Body2>
             <Body padding highlight>{item.price}</Body>
-            <Button>Add to Cart</Button>
+            <Button onClick={onAddButtonClick}>
+              Add to Cart
+            </Button>
           </CardContainer>
         </ItemDetailsLayout>
       </Wrapper>

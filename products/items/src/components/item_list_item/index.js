@@ -8,8 +8,10 @@ const Header = React.lazy(() => import('shared/Header'));
 const Body = React.lazy(() => import('shared/Body'));
 const Button = React.lazy(() => import('shared/Button'));
 
-const ItemListItem = ({ item }) => {
+const ItemListItem = ({ item, onAddItem }) => {
   const { url } = useRouteMatch();
+
+  const onAddButtonClick = () => onAddItem(item);
 
   return (
     <AsyncLoader noLoading>
@@ -24,7 +26,7 @@ const ItemListItem = ({ item }) => {
             <Body>{item.price}</Body>
           </InfoContainer>
           <ButtonContainer>
-            <Button>
+            <Button onClick={onAddButtonClick}>
               Add to Cart
             </Button>
           </ButtonContainer>

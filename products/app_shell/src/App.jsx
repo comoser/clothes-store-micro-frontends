@@ -11,6 +11,7 @@ import AsyncLoader from './components/async_loader';
 import GlobalState from './components/global_state';
 
 const ItemRoutes = React.lazy(() => import('items/Routes'));
+const CheckoutRoutes = React.lazy(() => import('checkout/Routes'));
 
 ReactDOM.render(
   <Router>
@@ -23,7 +24,13 @@ ReactDOM.render(
               blog
             </Route>
             <Route path="/checkout">
-              checkout
+              <AsyncLoader>
+                <CheckoutRoutes
+                  itemsInCart={itemsInCart}
+                  setItemsInCart={setItemsInCart}
+                  setNotification={setNotification}
+                />
+              </AsyncLoader>
             </Route>
             <Route path="/items">
               <AsyncLoader>

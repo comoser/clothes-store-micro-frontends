@@ -11,10 +11,10 @@ import Routes from './components/routes';
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route path="/items">
+      <Route path="/checkout">
         <Routes />
       </Route>
-      <Redirect to="/items" from="/" />
+      <Redirect to="/checkout" from="/" />
     </Switch>
   </Router>
   , document.getElementById('app'),

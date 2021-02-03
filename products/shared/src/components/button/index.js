@@ -9,7 +9,7 @@ const Button = styled.button`
   padding: 20px 40px;
   border: none;
   font-size: 1.2rem;
-  margin-right: 30px;
+  margin-right: ${({ noMargin }) => noMargin ? 0 : 30}px;
   cursor: pointer;
   &:hover {
     background-color: ${primaryDark};

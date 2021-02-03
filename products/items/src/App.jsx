@@ -12,7 +12,11 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route path="/items">
-        <Routes />
+        <Routes
+          itemsInCart={[]}
+          setItemsInCart={() => {}}
+          setNotification={() => {}}
+        />
       </Route>
       <Redirect to="/items" from="/" />
     </Switch>

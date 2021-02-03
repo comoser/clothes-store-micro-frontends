@@ -45,7 +45,7 @@ module.exports = {
       name: 'checkout',
       filename: 'remoteEntry.js',
       remotes: {
-        shared: 'shared@localhost:3004/remoteEntry.js',
+        shared: 'shared@http://localhost:3004/remoteEntry.js',
       },
       exposes: {
         './CheckoutCart': './src/components/checkout_cart',

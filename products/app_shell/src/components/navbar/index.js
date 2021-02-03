@@ -13,9 +13,11 @@ const Navbar = ({ itemsInCart }) => {
       <AsyncLoader>
         <Wrapper>
           <NavbarLayout>
-            <Logo>
-              <img src={logo} height="90" width="90" alt="logo"/>
-            </Logo>
+            <Link to="/">
+              <Logo>
+                <img src={logo} height="90" width="90" alt="logo"/>
+              </Logo>
+            </Link>
             <LinksWrapper>
               <StyledNavbarLink to="/items">Clothes</StyledNavbarLink>
               <StyledNavbarLink to="/blog">Blog</StyledNavbarLink>
@@ -41,6 +43,7 @@ const NavbarLayout = styled.div`
 
 const Logo = styled.div`
   display: flex;
+  height: 100%;
   align-items: center;
 `;
 

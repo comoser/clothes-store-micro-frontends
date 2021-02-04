@@ -5,13 +5,13 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:3003/',
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json'],
   },
   devServer: {
-    port: 3000,
+    port: 3003,
     historyApiFallback: true,
   },
   module: {
@@ -42,12 +42,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app_shell',
+      name: 'blog',
+      filename: 'remoteEntry.js',
       remotes: {
-        items: 'items@http://localhost:3001/remoteEntry.js',
-        checkout: 'checkout@http://localhost:3002/remoteEntry.js',
-        blog: 'blog@http://localhost:3003/remoteEntry.js',
         shared: 'shared@http://localhost:3004/remoteEntry.js',
+      },
+      exposes: {
+        './Routes': './src/components/routes',
       },
       shared: {
         ...deps,

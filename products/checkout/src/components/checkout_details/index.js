@@ -17,7 +17,7 @@ const CheckoutDetails = ({ itemsInCart, setItemsInCart, setNotification }) => {
     <AsyncLoader>
       <Wrapper>
         <CheckoutDetailsLayout>
-          {itemsInCart.map((item) => <CheckoutItem item={item} />)}
+          {itemsInCart.map((item) => <CheckoutItem key={item.name} item={item} />)}
           {itemsInCart.length === 0 && (
             <Header style={{ textAlign: 'center' }}>No items in your cart yet!</Header>
           )}

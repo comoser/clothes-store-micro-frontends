@@ -12,6 +12,7 @@ import GlobalState from './components/global_state';
 
 const ItemRoutes = React.lazy(() => import('items/Routes'));
 const CheckoutRoutes = React.lazy(() => import('checkout/Routes'));
+const BlogRoutes = React.lazy(() => import('blog/Routes'));
 
 ReactDOM.render(
   <Router>
@@ -21,7 +22,9 @@ ReactDOM.render(
           <Navbar itemsInCart={itemsInCart} />
           <Switch>
             <Route path="/blog">
-              blog
+              <AsyncLoader>
+                <BlogRoutes />
+              </AsyncLoader>
             </Route>
             <Route path="/checkout">
               <AsyncLoader>

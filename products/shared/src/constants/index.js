@@ -4,7 +4,6 @@ const textPrimary = '#444';
 
 export {
   primary,
-  primaryLight,
   primaryDark,
   textPrimary,
 };

@@ -9,7 +9,7 @@ The articles explain why to follow this approach, some pros and cons and also th
 
 # Architecture
 
-![!img](https://i.imgur.com/MiQmHlU.jpg)
+![!img](https://i.imgur.com/lELtbAW.jpg)
 
 # License
 [MIT](./LICENSE)

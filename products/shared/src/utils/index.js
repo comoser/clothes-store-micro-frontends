@@ -32,7 +32,4 @@ const useCheckoutCart = (initialItems = readFromStorage(ITEMS_IN_CART_KEY)) => {
   return [itemsInCart, setItemsInCart];
 }
 
-export {
-  readFromStorage,
-  useCheckoutCart,
-}
+export { useCheckoutCart };
